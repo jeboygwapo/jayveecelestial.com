@@ -125,6 +125,22 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Jayvee Celestial — Senior DevOps Engineer" />
   <meta name="twitter:description" content="OpenShift & Kubernetes specialist. Red Hat certified. Transitioning into AI Engineering." />
+  <link rel="canonical" href="https://jayveecelestial.vercel.app" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jayvee Celestial",
+    "jobTitle": "Senior DevOps Engineer",
+    "url": "https://jayveecelestial.vercel.app",
+    "email": "jayveecmacaraeg@gmail.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/jayveecelestial/",
+      "https://github.com/jeboygwapo",
+      "https://www.credly.com/users/jayvee-celestial/badges"
+    ]
+  }
+  </script>
 </head>
 <body class="bg-slate-950 text-slate-200 font-sans antialiased">
 
@@ -175,11 +191,11 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
   <section class="max-w-5xl mx-auto px-6 pt-36 pb-24 relative">
     <div class="absolute -top-20 -left-20 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute top-10 right-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none"></div>
-    <img src="/avatar.png" alt="Jayvee Celestial" class="w-20 h-20 rounded-full object-cover mb-6 ring-4 ring-indigo-600/20" />
+    <img src="/avatar.png" alt="Jayvee Celestial" width="80" height="80" class="w-20 h-20 rounded-full object-cover mb-6 ring-4 ring-indigo-600/20" />
     <p class="text-indigo-400 text-sm font-medium mb-3 tracking-widest uppercase">Senior DevOps Engineer · Riyadh, KSA</p>
     <h1 class="text-5xl font-bold text-slate-100 mb-4 leading-tight">Jayvee Celestial</h1>
     <h2 class="text-xl text-slate-400 mb-6">
-      <span id="typing-text" class="text-slate-300"></span><span class="typing-cursor">|</span>
+      <span id="typing-text" class="text-slate-300">OpenShift &amp; Kubernetes Specialist</span><span class="typing-cursor">|</span>
     </h2>
     <p class="text-slate-400 max-w-2xl text-base leading-relaxed mb-8">
       4+ years building cloud-native platforms at IBM and eMcREY. Red Hat certified across OpenShift
@@ -300,29 +316,6 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
     </div>
   </section>
 
-  <!-- Skills -->
-  <section id="skills" class="fade-section max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
-    <h2 class="text-2xl font-bold text-slate-100 mb-10">Technical Skills</h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {skillGroups.map(g => (
-        <div>
-          <p class="text-xs uppercase tracking-widest text-slate-600 mb-3">{g.label}</p>
-          <div class="flex flex-wrap gap-2">
-            {g.items.map(s => {
-              const icon = skillIconMap[s];
-              return (
-                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs text-slate-400 inline-flex items-center gap-1.5">
-                  {icon && <img src={`https://cdn.simpleicons.org/${icon.slug}/${icon.color}`} alt="" width="12" height="12" class="flex-shrink-0" loading="lazy" />}
-                  {s}
-                </span>
-              );
-            })}
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
   <!-- Certifications -->
   <section id="certifications" class="fade-section max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
     <h2 class="text-2xl font-bold text-slate-100 mb-2">Certifications</h2>
@@ -349,6 +342,29 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
           <p class="text-xs text-slate-600 mb-0.5">{c.issuer}</p>
           <p class="text-slate-300 text-sm leading-snug">{c.name}</p>
           <p class="text-slate-700 text-xs mt-1">{c.date}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="fade-section max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
+    <h2 class="text-2xl font-bold text-slate-100 mb-10">Technical Skills</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {skillGroups.map(g => (
+        <div>
+          <p class="text-xs uppercase tracking-widest text-slate-600 mb-3">{g.label}</p>
+          <div class="flex flex-wrap gap-2">
+            {g.items.map(s => {
+              const icon = skillIconMap[s];
+              return (
+                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs text-slate-400 inline-flex items-center gap-1.5">
+                  {icon && <img src={`https://cdn.simpleicons.org/${icon.slug}/${icon.color}`} alt="" width="12" height="12" class="flex-shrink-0" loading="lazy" />}
+                  {s}
+                </span>
+              );
+            })}
+          </div>
         </div>
       ))}
     </div>

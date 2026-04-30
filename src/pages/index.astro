@@ -90,6 +90,28 @@ const skillGroups = [
   { label: "Languages", items: ["Python", "Bash", "Java"] },
   { label: "Cloud", items: ["AWS", "Microsoft Azure", "IBM Cloud"] },
 ];
+
+const skillIconMap: Record<string, { slug: string; color: string }> = {
+  "Red Hat OpenShift": { slug: "redhatopenshift", color: "EE0000" },
+  "Kubernetes":        { slug: "kubernetes",       color: "326CE5" },
+  "Docker":            { slug: "docker",           color: "2496ED" },
+  "Podman":            { slug: "podman",           color: "892CA0" },
+  "Ansible":           { slug: "ansible",          color: "EE0000" },
+  "Terraform":         { slug: "terraform",        color: "7B42BC" },
+  "Helm":              { slug: "helm",             color: "0F1689" },
+  "ArgoCD":            { slug: "argo",             color: "EF7B4D" },
+  "GitHub Actions":    { slug: "githubactions",    color: "2088FF" },
+  "GitLab CI/CD":      { slug: "gitlab",           color: "FC6D26" },
+  "Jenkins":           { slug: "jenkins",          color: "D24939" },
+  "OpenAI API":        { slug: "openai",           color: "ffffff" },
+  "Cursor IDE":        { slug: "cursor",           color: "ffffff" },
+  "Python":            { slug: "python",           color: "3776AB" },
+  "Bash":              { slug: "gnubash",          color: "4EAA25" },
+  "Java":              { slug: "openjdk",          color: "ED8B00" },
+  "AWS":               { slug: "amazonaws",        color: "FF9900" },
+  "Microsoft Azure":   { slug: "microsoftazure",   color: "0078D4" },
+  "IBM Cloud":         { slug: "ibmcloud",         color: "1261FE" },
+};
 ---
 
 <!DOCTYPE html>
@@ -278,9 +300,15 @@ const skillGroups = [
         <div>
           <p class="text-xs uppercase tracking-widest text-slate-600 mb-3">{g.label}</p>
           <div class="flex flex-wrap gap-2">
-            {g.items.map(s => (
-              <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs text-slate-400">{s}</span>
-            ))}
+            {g.items.map(s => {
+              const icon = skillIconMap[s];
+              return (
+                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs text-slate-400 inline-flex items-center gap-1.5">
+                  {icon && <img src={`https://cdn.simpleicons.org/${icon.slug}/${icon.color}`} alt="" width="12" height="12" class="flex-shrink-0" loading="lazy" />}
+                  {s}
+                </span>
+              );
+            })}
           </div>
         </div>
       ))}
@@ -315,27 +343,6 @@ const skillGroups = [
           <p class="text-slate-700 text-xs mt-1">{c.date}</p>
         </div>
       ))}
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section class="fade-section max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
-    <h2 class="text-2xl font-bold text-slate-100 mb-8">Education</h2>
-    <div class="space-y-4">
-      <div class="flex items-start justify-between gap-4 flex-wrap">
-        <div>
-          <h3 class="font-semibold text-slate-100">Bachelor of Science in Information Technology</h3>
-          <p class="text-indigo-400 text-sm mt-0.5">University of the East, Manila</p>
-        </div>
-        <p class="text-slate-500 text-sm flex-shrink-0">2022</p>
-      </div>
-      <div class="flex items-start justify-between gap-4 flex-wrap">
-        <div>
-          <h3 class="font-semibold text-slate-100">STEM — Science Technology Engineering Mathematics</h3>
-          <p class="text-indigo-400 text-sm mt-0.5">Technological Institute of the Philippines</p>
-        </div>
-        <p class="text-slate-500 text-sm flex-shrink-0">2018</p>
-      </div>
     </div>
   </section>
 

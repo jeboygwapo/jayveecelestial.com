@@ -1,0 +1,250 @@
+---
+const experience = [
+  {
+    company: "eMcREY Limited",
+    role: "Senior DevOps Engineer",
+    period: "Sep 2025 – Present",
+    location: "Riyadh, Saudi Arabia · On-site",
+    skills: ["OpenShift", "DevOps", "Kubernetes"],
+    current: true,
+  },
+  {
+    company: "IBM Philippines",
+    role: "Application Developer: Platform Engineer",
+    period: "Mar 2024 – Sep 2025",
+    location: "Philippines · Hybrid",
+    skills: ["OpenShift", "Jira", "Platform Engineering"],
+    current: false,
+  },
+  {
+    company: "IBM Philippines",
+    role: "Application Developer: DevOps Engineer",
+    period: "Nov 2022 – Mar 2024",
+    location: "Philippines · Remote",
+    skills: ["Python", "JMeter", "Jenkins", "GitLab CI/CD", "Docker", "Kubernetes"],
+    current: false,
+  },
+  {
+    company: "IBM Philippines",
+    role: "Consulting Associate",
+    period: "Jun 2022 – Oct 2022",
+    location: "Philippines",
+    skills: ["IBM Garage", "Agile", "Design Thinking"],
+    current: false,
+  },
+];
+
+const projects = [
+  {
+    title: "Debt Tracker",
+    description: "Personal finance web app for OFW debt repayment planning. Avalanche/snowball payoff planning, SAR→PHP remittance tracking, AI-powered analysis, multi-user support, CI/CD via GitHub Actions.",
+    stack: ["FastAPI", "SQLAlchemy", "Jinja2", "PostgreSQL", "Docker", "GitHub Actions"],
+    url: "https://github.com/jeboygwapo/debt-tracker",
+    status: "Live",
+  },
+  {
+    title: "AI Engineering Projects",
+    description: "LLM Engineering and OpenAI API integrations — ongoing projects as part of AI Engineering transition from DevOps background.",
+    stack: ["Python", "OpenAI API", "FastAPI"],
+    url: null,
+    status: "In Progress",
+  },
+];
+
+const certs = [
+  { name: "Red Hat Certified Technologist in OpenShift", issuer: "Red Hat", date: "Mar 2026", expires: "Mar 2029", highlight: true },
+  { name: "Red Hat Certified Specialist in OpenShift ACM", issuer: "Red Hat", date: "Dec 2025", expires: "Dec 2028", highlight: true },
+  { name: "Red Hat Certified OpenShift Administrator (EX280)", issuer: "Red Hat", date: "Nov 2025", expires: "Nov 2028", highlight: true },
+  { name: "Red Hat Certified Specialist in Containers (EX188)", issuer: "Red Hat", date: "Mar 2025", expires: "Mar 2028", highlight: true },
+  { name: "AWS Certified Cloud Practitioner", issuer: "AWS", date: "Feb 2026", expires: "Feb 2029", highlight: true },
+  { name: "Microsoft Certified: Azure AI Fundamentals", issuer: "Microsoft", date: "Dec 2022", expires: null, highlight: false },
+  { name: "Microsoft Azure Fundamentals", issuer: "Microsoft", date: "Dec 2022", expires: null, highlight: false },
+  { name: "Red Hat Partner Program: Premier", issuer: "Red Hat", date: "Apr 2026", expires: "Dec 2026", highlight: false },
+  { name: "Mission Critical Automation: Technical Seller", issuer: "Red Hat", date: "Mar 2026", expires: "Mar 2028", highlight: false },
+  { name: "Application Platform: Technical Seller", issuer: "Red Hat", date: "Mar 2026", expires: "Mar 2028", highlight: false },
+  { name: "DevSecOps Essentials", issuer: "IBM", date: "Aug 2022", expires: null, highlight: false },
+  { name: "IT Specialist - Python", issuer: "Certiport", date: "Nov 2021", expires: null, highlight: false },
+  { name: "IT Specialist - Java", issuer: "Certiport", date: "Dec 2021", expires: null, highlight: false },
+];
+
+const skills = [
+  "OpenShift", "Kubernetes", "ArgoCD", "Helm", "Ansible", "Terraform",
+  "Docker", "Podman", "GitHub Actions", "GitLab CI/CD", "Jenkins",
+  "Python", "Bash", "Red Hat ACM", "Red Hat ACS", "AWS", "Azure",
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Jayvee Celestial — Senior DevOps Engineer</title>
+  <meta name="description" content="Senior DevOps Engineer specializing in OpenShift, Kubernetes, and cloud infrastructure. Transitioning into AI Engineering." />
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full bg-slate-950/80 backdrop-blur border-b border-slate-800 z-50">
+    <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+      <span class="font-bold text-indigo-400 tracking-tight">JC</span>
+      <div class="flex gap-6 text-sm text-slate-400">
+        <a href="#experience" class="hover:text-slate-100 transition-colors">Experience</a>
+        <a href="#projects" class="hover:text-slate-100 transition-colors">Projects</a>
+        <a href="#certifications" class="hover:text-slate-100 transition-colors">Certs</a>
+        <a href="#contact" class="hover:text-slate-100 transition-colors">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-5xl mx-auto px-6 pt-36 pb-24">
+    <p class="text-indigo-400 text-sm font-medium mb-3 tracking-widest uppercase">Senior DevOps Engineer</p>
+    <h1 class="text-5xl font-bold text-slate-100 mb-4 leading-tight">
+      Jayvee Celestial
+    </h1>
+    <h2 class="text-xl text-slate-400 mb-6">
+      OpenShift & Kubernetes Specialist · <span class="text-slate-300">AI Engineering in Progress</span>
+    </h2>
+    <p class="text-slate-400 max-w-2xl text-base leading-relaxed mb-8">
+      4+ years building cloud-native platforms at IBM and eMcREY Limited in Riyadh.
+      Red Hat certified across OpenShift administration, ACM, and containers.
+      Applying DevOps foundations to LLM infrastructure and AI Engineering.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <a href="https://linkedin.com/in/jayveecelestial" target="_blank"
+         class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors">
+        LinkedIn
+      </a>
+      <a href="https://github.com/jeboygwapo" target="_blank"
+         class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
+        GitHub
+      </a>
+      <a href="#contact"
+         class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
+        Contact
+      </a>
+    </div>
+    <div class="flex flex-wrap gap-2 mt-10">
+      {skills.map(s => (
+        <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs text-slate-400">{s}</span>
+      ))}
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
+    <h2 class="text-2xl font-bold text-slate-100 mb-10">Experience</h2>
+    <div class="space-y-0">
+      {experience.map((e, i) => (
+        <div class="flex gap-6">
+          <div class="flex flex-col items-center">
+            <div class={`w-3 h-3 rounded-full mt-1.5 flex-shrink-0 ${e.current ? 'bg-indigo-500' : 'bg-slate-700'}`}></div>
+            {i < experience.length - 1 && <div class="w-px flex-1 bg-slate-800 mt-1 min-h-[3rem]"></div>}
+          </div>
+          <div class="pb-10 flex-1">
+            <div class="flex items-start justify-between gap-4 flex-wrap">
+              <div>
+                <h3 class="font-semibold text-slate-100">{e.role}</h3>
+                <p class="text-indigo-400 text-sm mt-0.5">{e.company}</p>
+              </div>
+              <div class="text-right flex-shrink-0">
+                <p class="text-slate-400 text-sm">{e.period}</p>
+                <p class="text-slate-600 text-xs mt-0.5">{e.location}</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2 mt-3">
+              {e.skills.map(s => (
+                <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded text-xs text-slate-500">{s}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
+    <h2 class="text-2xl font-bold text-slate-100 mb-10">Projects</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      {projects.map(p => (
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col gap-4 hover:border-slate-700 transition-colors">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="font-semibold text-slate-100">{p.title}</h3>
+            <span class={`text-xs px-2 py-0.5 rounded-full flex-shrink-0 border ${p.status === 'Live' ? 'bg-green-950 text-green-400 border-green-900' : 'bg-yellow-950 text-yellow-400 border-yellow-900'}`}>
+              {p.status}
+            </span>
+          </div>
+          <p class="text-slate-400 text-sm leading-relaxed">{p.description}</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            {p.stack.map(s => (
+              <span class="px-2 py-0.5 bg-slate-800 border border-slate-700 rounded text-xs text-slate-400">{s}</span>
+            ))}
+          </div>
+          {p.url && (
+            <a href={p.url} target="_blank"
+               class="text-indigo-400 hover:text-indigo-300 text-sm font-medium transition-colors">
+              View on GitHub →
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
+    <h2 class="text-2xl font-bold text-slate-100 mb-10">Certifications</h2>
+    <h3 class="text-xs uppercase tracking-widest text-slate-600 mb-4">Featured</h3>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+      {certs.filter(c => c.highlight).map(c => (
+        <div class="bg-slate-900 border border-indigo-900/40 rounded-xl p-4 hover:border-indigo-700/50 transition-colors">
+          <p class="text-xs text-indigo-400 font-medium mb-1.5">{c.issuer}</p>
+          <p class="text-slate-200 text-sm font-medium leading-snug">{c.name}</p>
+          <p class="text-slate-600 text-xs mt-2">{c.date}{c.expires ? ` · expires ${c.expires}` : ''}</p>
+        </div>
+      ))}
+    </div>
+    <h3 class="text-xs uppercase tracking-widest text-slate-600 mb-4">Additional</h3>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {certs.filter(c => !c.highlight).map(c => (
+        <div class="bg-slate-900/40 border border-slate-800 rounded-lg p-3">
+          <p class="text-xs text-slate-600 mb-0.5">{c.issuer}</p>
+          <p class="text-slate-300 text-sm leading-snug">{c.name}</p>
+          <p class="text-slate-700 text-xs mt-1">{c.date}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
+    <h2 class="text-2xl font-bold text-slate-100 mb-4">Get in Touch</h2>
+    <p class="text-slate-400 mb-8 max-w-xl leading-relaxed">
+      Open to DevOps, Platform Engineering, and AI Engineering opportunities.
+      Currently based in Riyadh — available remotely or on-site.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="https://linkedin.com/in/jayveecelestial" target="_blank"
+         class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors">
+        Connect on LinkedIn
+      </a>
+      <a href="https://github.com/jeboygwapo" target="_blank"
+         class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
+        GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-8 mt-8">
+    <div class="max-w-5xl mx-auto px-6 flex items-center justify-between text-slate-700 text-sm">
+      <span>Jayvee Celestial</span>
+      <span>Built with Astro + Tailwind</span>
+    </div>
+  </footer>
+
+</body>
+</html>

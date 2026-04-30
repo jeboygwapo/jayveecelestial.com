@@ -127,9 +127,9 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
   <meta property="og:description" content="OpenShift & Kubernetes specialist. Red Hat certified. Transitioning into AI Engineering." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jayveecelestial.vercel.app" />
-  <meta property="og:image" content="https://jayveecelestial.vercel.app/avatar.png" />
-  <meta name="twitter:image" content="https://jayveecelestial.vercel.app/avatar.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://jayveecelestial.vercel.app/og-image.svg" />
+  <meta name="twitter:image" content="https://jayveecelestial.vercel.app/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Jayvee Celestial — Senior DevOps Engineer" />
   <meta name="twitter:description" content="OpenShift & Kubernetes specialist. Red Hat certified. Transitioning into AI Engineering." />
 </head>
@@ -147,6 +147,15 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
         <a href="#certifications" data-nav="certifications" class="nav-link hover:text-slate-100 transition-colors">Certs</a>
         <a href="#contact" data-nav="contact" class="nav-link hover:text-slate-100 transition-colors">Contact</a>
       </div>
+      <!-- Theme toggle -->
+      <button id="theme-toggle" aria-label="Toggle theme" class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors">
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+        </svg>
+      </button>
       <!-- Hamburger button (mobile) -->
       <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-2 group" aria-label="Toggle menu">
         <span class="block w-5 h-0.5 bg-slate-400 group-hover:bg-slate-100 transition-colors"></span>
@@ -381,6 +390,29 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
   </footer>
 
   <style>
+    /* Light mode overrides */
+    html.light body { background-color: #f8fafc; color: #1e293b; }
+    html.light .bg-slate-950 { background-color: #f8fafc !important; }
+    html.light .bg-slate-950\/80 { background-color: rgba(248,250,252,0.92) !important; }
+    html.light .bg-slate-900 { background-color: #ffffff !important; }
+    html.light .bg-slate-900\/50 { background-color: rgba(241,245,249,0.8) !important; }
+    html.light .bg-slate-900\/40 { background-color: rgba(241,245,249,0.6) !important; }
+    html.light .bg-slate-800 { background-color: #e2e8f0 !important; }
+    html.light .text-slate-100 { color: #0f172a !important; }
+    html.light .text-slate-200 { color: #1e293b !important; }
+    html.light .text-slate-400 { color: #475569 !important; }
+    html.light .text-slate-500 { color: #64748b !important; }
+    html.light .text-slate-600 { color: #94a3b8 !important; }
+    html.light .text-slate-700 { color: #cbd5e1 !important; }
+    html.light .border-slate-800 { border-color: #e2e8f0 !important; }
+    html.light .border-slate-700 { border-color: #cbd5e1 !important; }
+    html.light .border-indigo-900\/40 { border-color: rgba(165,180,252,0.4) !important; }
+    html.light .hover\:border-indigo-700\/50:hover { border-color: rgba(129,140,248,0.7) !important; }
+    html.light .hover\:border-slate-700:hover { border-color: #94a3b8 !important; }
+    html.light #theme-toggle { color: #475569; }
+    html.light #theme-toggle:hover { background-color: #e2e8f0; color: #0f172a; }
+    html.light #back-to-top { background-color: #6366f1; }
+
     .typing-cursor {
       display: inline-block;
       color: #6366f1;
@@ -445,6 +477,25 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
     sections.forEach(id => {
       const el = document.getElementById(id);
       if (el) navObserver.observe(el);
+    });
+  </script>
+
+  <!-- Theme toggle logic -->
+  <script>
+    const html = document.documentElement;
+    const moonIcon = document.getElementById('icon-moon');
+    const sunIcon = document.getElementById('icon-sun');
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light') {
+      html.classList.add('light');
+      moonIcon?.classList.add('hidden');
+      sunIcon?.classList.remove('hidden');
+    }
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      const isLight = html.classList.toggle('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      moonIcon?.classList.toggle('hidden', isLight);
+      sunIcon?.classList.toggle('hidden', !isLight);
     });
   </script>
 

@@ -46,13 +46,13 @@ Jenkins, Python, Docker, Podman, Red Hat ACM, Red Hat ACS, IBM Cloud, AWS, Azure
 - AI Engineering projects (ongoing — LLM Engineering, OpenAI APIs)
 
 ## Design Direction
-- Dark theme (consistent with Debt Tracker aesthetic — #0f172a bg, #1e293b surface, #6366f1 accent)
+- Dark theme (#0f172a bg, #1e293b surface, #6366f1 accent)
 - Clean, minimal, professional
-- Hero section with name, title, tagline
+- Hero: name, title, tagline
 - Experience timeline
 - Project cards with tech stack badges
 - Certifications grid
-- Contact / links section
+- Contact/links section
 
 ## Coding Rules
 - No hand-holding comments

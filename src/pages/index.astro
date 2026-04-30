@@ -177,8 +177,7 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
     <p class="text-indigo-400 text-sm font-medium mb-3 tracking-widest uppercase">Senior DevOps Engineer · Riyadh, KSA</p>
     <h1 class="text-5xl font-bold text-slate-100 mb-4 leading-tight">Jayvee Celestial</h1>
     <h2 class="text-xl text-slate-400 mb-6">
-      OpenShift & Kubernetes Specialist ·
-      <span class="text-slate-300">AI Engineering in Progress</span>
+      <span id="typing-text" class="text-slate-300"></span><span class="typing-cursor">|</span>
     </h2>
     <p class="text-slate-400 max-w-2xl text-base leading-relaxed mb-8">
       4+ years building cloud-native platforms at IBM and eMcREY. Red Hat certified across OpenShift
@@ -382,6 +381,13 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
   </footer>
 
   <style>
+    .typing-cursor {
+      display: inline-block;
+      color: #6366f1;
+      animation: blink 1s step-end infinite;
+      margin-left: 1px;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     .fade-section {
       opacity: 0;
       transform: translateY(24px);
@@ -414,6 +420,14 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
       margin-top: 2px;
     }
   </style>
+  <!-- Back to top button -->
+  <button id="back-to-top" aria-label="Back to top"
+    class="fixed bottom-6 right-6 z-50 w-10 h-10 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
   <script>
     const sections = ['experience', 'projects', 'skills', 'certifications', 'contact'];
     const navLinks = document.querySelectorAll('.nav-link');
@@ -432,6 +446,48 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
       const el = document.getElementById(id);
       if (el) navObserver.observe(el);
     });
+  </script>
+
+  <!-- Back to top logic -->
+  <script>
+    const btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        btn?.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        btn?.classList.add('opacity-0', 'pointer-events-none');
+      }
+    });
+    btn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+
+  <!-- Typing animation -->
+  <script>
+    const phrases = [
+      'OpenShift & Kubernetes Specialist',
+      'AI Engineering in Progress',
+      'Red Hat Certified Engineer',
+      'LLM Workflow Builder',
+      'Platform Engineer',
+    ];
+    const el = document.getElementById('typing-text');
+    if (el) {
+      let i = 0, char = 0, deleting = false;
+      const tick = () => {
+        const phrase = phrases[i];
+        el.textContent = deleting ? phrase.slice(0, char--) : phrase.slice(0, char++);
+        if (!deleting && char > phrase.length) { deleting = true; setTimeout(tick, 1800); return; }
+        if (deleting && char < 0) { deleting = false; i = (i + 1) % phrases.length; char = 0; setTimeout(tick, 400); return; }
+        setTimeout(tick, deleting ? 40 : 70);
+      };
+      tick();
+    }
+  </script>
+
+  <!-- Vercel Analytics -->
+  <script>
+    import { inject } from '@vercel/analytics';
+    inject();
   </script>
 </body>
 </html>

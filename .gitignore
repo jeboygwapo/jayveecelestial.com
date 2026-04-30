@@ -22,3 +22,13 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# claude / internal
+.claude/
+.claudeignore
+CLAUDE.md
+CLAUDE.original.md
+GITHUB_PROFILE_README.md
+
+# personal assets
+public/avatar.png

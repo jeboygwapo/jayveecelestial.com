@@ -44,17 +44,38 @@ const experience = [
 const projects = [
   {
     title: "Debt Tracker",
-    description: "Personal finance web app for OFW debt repayment planning. Avalanche/snowball payoff planning, SAR→PHP remittance tracking, AI-powered analysis, multi-user support, and full CI/CD via GitHub Actions.",
+    description: "Built a full-stack personal finance web app for OFW debt repayment planning — demonstrating end-to-end delivery: FastAPI backend, PostgreSQL, Docker, and automated CI/CD via GitHub Actions. Avalanche/snowball payoff strategies, SAR→PHP remittance tracking, and AI-powered analysis.",
     stack: ["FastAPI", "SQLAlchemy", "Jinja2", "PostgreSQL", "Docker", "GitHub Actions"],
     url: null,
     status: "In Progress",
   },
   {
     title: "AI Engineering — In Progress",
-    description: "Actively transitioning into AI Engineering. Building LLM-integrated workflows using Python and OpenAI API, completing LLM Engineering training, and working through 100 Days of Code. Includes AI context engineering using Claude Code, MCP configuration, and prompt engineering for DevOps automation.",
+    description: "Actively building AI Engineering capabilities: LLM-integrated Python workflows using OpenAI and Anthropic APIs, prompt engineering for DevOps automation, Claude Code MCP configuration, and agent orchestration. Applying directly to client work.",
     stack: ["Python", "OpenAI API", "Anthropic Claude", "Prompt Engineering", "MCP Configuration"],
     url: null,
     status: "In Progress",
+  },
+];
+
+const services = [
+  {
+    path: "~/services/devops",
+    title: "DevOps & Platform Engineering",
+    description: "CI/CD pipelines, Kubernetes and OpenShift deployments, Helm charts, GitOps with ArgoCD, Docker containerization. From zero to production-ready infra.",
+    tags: ["OpenShift", "Kubernetes", "ArgoCD", "Helm", "GitHub Actions"],
+  },
+  {
+    path: "~/services/llm-automation",
+    title: "LLM Workflow Automation",
+    description: "Integrate LLMs into your existing workflows using OpenAI or Anthropic APIs. Automate repetitive analysis, document processing, and decision support — with Python.",
+    tags: ["Python", "OpenAI API", "Anthropic Claude", "Prompt Engineering"],
+  },
+  {
+    path: "~/services/cloud-infra",
+    title: "Cloud Infrastructure",
+    description: "AWS, Azure, and IBM Cloud setup. Container platforms, networking, IAM, and cost optimization. Scalable infra for startups that need to move fast.",
+    tags: ["AWS", "Microsoft Azure", "Terraform", "Ansible"],
   },
 ];
 
@@ -105,6 +126,10 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
   "Microsoft Azure":   { slug: "microsoftazure",      color: "0078D4" },
   "IBM Cloud":         { slug: "ibm",                 color: "052FAD" },
 };
+
+function toKebab(title: string): string {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
 ---
 
 <!DOCTYPE html>
@@ -113,25 +138,29 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>Jayvee Celestial — Senior DevOps Engineer</title>
-  <meta name="description" content="Senior DevOps Engineer specializing in OpenShift, Kubernetes, and cloud infrastructure. Transitioning into AI Engineering." />
+  <title>Jayvee Celestial — Freelance DevOps &amp; AI Engineering Consultant</title>
+  <meta name="description" content="Freelance DevOps consultant for startups. OpenShift, Kubernetes, LLM automation. Red Hat certified. Available for remote projects." />
   <!-- OG / Social -->
-  <meta property="og:title" content="Jayvee Celestial — Senior DevOps Engineer" />
-  <meta property="og:description" content="OpenShift & Kubernetes specialist. Red Hat certified. Transitioning into AI Engineering." />
+  <meta property="og:title" content="Jayvee Celestial — Freelance DevOps &amp; AI Engineering Consultant" />
+  <meta property="og:description" content="Freelance DevOps consultant for startups. OpenShift, Kubernetes, LLM automation. Red Hat certified. Available for remote projects." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jayveecelestial.com" />
   <meta property="og:image" content="https://jayveecelestial.com/og-image.png" />
   <meta name="twitter:image" content="https://jayveecelestial.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Jayvee Celestial — Senior DevOps Engineer" />
-  <meta name="twitter:description" content="OpenShift & Kubernetes specialist. Red Hat certified. Transitioning into AI Engineering." />
+  <meta name="twitter:title" content="Jayvee Celestial — Freelance DevOps &amp; AI Engineering Consultant" />
+  <meta name="twitter:description" content="Freelance DevOps consultant for startups. OpenShift, Kubernetes, LLM automation. Red Hat certified. Available for remote projects." />
   <link rel="canonical" href="https://jayveecelestial.com" />
+  <!-- JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Jayvee Celestial",
-    "jobTitle": "Senior DevOps Engineer",
+    "jobTitle": "Freelance DevOps & AI Engineering Consultant",
     "url": "https://jayveecelestial.com",
     "email": "jayveecmacaraeg@gmail.com",
     "sameAs": [
@@ -150,6 +179,7 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
       <span class="font-bold text-indigo-400 tracking-tight">JC</span>
       <!-- Desktop links -->
       <div class="hidden md:flex gap-6 text-sm text-slate-400">
+        <a href="#services" data-nav="services" class="nav-link hover:text-slate-100 transition-colors">Services</a>
         <a href="#experience" data-nav="experience" class="nav-link hover:text-slate-100 transition-colors">Experience</a>
         <a href="#projects" data-nav="projects" class="nav-link hover:text-slate-100 transition-colors">Projects</a>
         <a href="#skills" data-nav="skills" class="nav-link hover:text-slate-100 transition-colors">Skills</a>
@@ -174,6 +204,7 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
     </div>
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-slate-950 border-t border-slate-800 px-6 py-4 flex flex-col gap-4 text-sm text-slate-400">
+      <a href="#services" class="hover:text-slate-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a>
       <a href="#experience" class="hover:text-slate-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Experience</a>
       <a href="#projects" class="hover:text-slate-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Projects</a>
       <a href="#skills" class="hover:text-slate-100 transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Skills</a>
@@ -191,41 +222,61 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
   <section class="max-w-5xl mx-auto px-6 pt-36 pb-24 relative">
     <div class="absolute -top-20 -left-20 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute top-10 right-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none"></div>
-    <img src="/avatar.png" alt="Jayvee Celestial" width="80" height="80" class="w-20 h-20 rounded-full object-cover mb-6 ring-4 ring-indigo-600/20" />
-    <p class="text-indigo-400 text-sm font-medium mb-3 tracking-widest uppercase">Senior DevOps Engineer · Riyadh, KSA</p>
-    <h1 class="text-5xl font-bold text-slate-100 mb-4 leading-tight">Jayvee Celestial</h1>
-    <h2 class="text-xl text-slate-400 mb-6">
-      <span id="typing-text" class="text-slate-300">OpenShift &amp; Kubernetes Specialist</span><span class="typing-cursor">|</span>
-    </h2>
-    <p class="text-slate-400 max-w-2xl text-base leading-relaxed mb-8">
-      4+ years building cloud-native platforms at IBM and eMcREY. Red Hat certified across OpenShift
-      administration, ACM, and containers. Currently integrating LLM workflows into DevOps automation
-      and expanding into full-stack AI Engineering.
-    </p>
-    <div class="flex flex-wrap gap-3">
-      <a href="#contact"
-         class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors">
-        Contact Me
-      </a>
-      <a href="/Jayvee-Celestial-CV.pdf" download
-         class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700 flex items-center gap-1.5">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
-        </svg>
-        Download CV
-      </a>
-      <a href="https://linkedin.com/in/jayveecelestial" target="_blank"
-         class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
-        LinkedIn
-      </a>
-      <a href="https://github.com/jeboygwapo" target="_blank"
-         class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
-        GitHub
-      </a>
-      <a href="https://www.credly.com/users/jayvee-celestial/badges" target="_blank"
-         class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
-        Credly
-      </a>
+
+    <!-- Terminal window wrapper -->
+    <div class="relative z-10">
+      <!-- Terminal top bar -->
+      <div class="bg-slate-900 border border-slate-700/50 rounded-t-xl px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-[#ff5f57]"></span>
+          <span class="w-3 h-3 rounded-full bg-[#febc2e]"></span>
+          <span class="w-3 h-3 rounded-full bg-[#28c840]"></span>
+        </div>
+        <span class="font-mono text-xs text-slate-500">~/jayvee-celestial</span>
+      </div>
+      <!-- Terminal body -->
+      <div class="bg-slate-950/80 border border-t-0 border-slate-700/50 rounded-b-xl p-8">
+        <p class="font-mono text-sm text-slate-600 mb-4">$ whoami</p>
+        <img src="/avatar.png" alt="Jayvee Celestial" width="80" height="80" class="w-20 h-20 rounded-full object-cover mb-6 ring-4 ring-indigo-600/20" />
+        <p class="text-indigo-400 text-sm font-medium mb-3 tracking-widest uppercase">Freelance DevOps &amp; AI Engineering Consultant · Remote</p>
+        <h1 class="text-5xl font-bold text-slate-100 mb-4 leading-tight">Jayvee Celestial</h1>
+        <h2 class="text-xl text-slate-400 mb-3">
+          <span id="typing-text" class="text-slate-300">OpenShift &amp; Kubernetes Specialist</span><span class="typing-cursor">|</span>
+        </h2>
+        <p class="text-slate-300 text-lg font-medium mb-3">I help startups ship cloud-native infrastructure — without hiring a full-time DevOps team.</p>
+        <p class="text-slate-400 max-w-2xl text-base leading-relaxed mb-8">
+          4+ years shipping production infrastructure at IBM and eMcREY. I work with startups remotely on DevOps setup, Kubernetes/OpenShift deployments, CI/CD pipelines, and LLM workflow automation. Red Hat certified. Available now for project-based or hourly engagements.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#contact"
+             class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors">
+            Hire Me
+          </a>
+          <a href="#projects"
+             class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
+            See My Work
+          </a>
+          <a href="/Jayvee-Celestial-CV.pdf" download
+             class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700 flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
+            </svg>
+            Download CV
+          </a>
+          <a href="https://linkedin.com/in/jayveecelestial" target="_blank"
+             class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
+            LinkedIn
+          </a>
+          <a href="https://github.com/jeboygwapo" target="_blank"
+             class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
+            GitHub
+          </a>
+          <a href="https://www.credly.com/users/jayvee-celestial/badges" target="_blank"
+             class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
+            Credly
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -234,14 +285,41 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
     <div class="max-w-5xl mx-auto px-6 py-3 flex flex-wrap gap-6 text-sm">
       <span class="flex items-center gap-2 text-slate-400">
         <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-        <span class="text-slate-300 font-medium">Open to</span> DevOps · Platform Engineering · AI Engineering roles
+        <span class="font-mono text-slate-300">&gt; available-for:</span> Freelance · Remote · Global
       </span>
       <span class="flex items-center gap-2 text-slate-400">
         <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
-        <span class="text-slate-300 font-medium">Building</span> LLM-integrated DevOps workflows · AI Engineering skills
+        <span class="font-mono text-slate-300">&gt; services:</span> DevOps · LLM Automation · Platform Engineering
       </span>
     </div>
   </div>
+
+  <!-- Services -->
+  <section id="services" class="fade-section max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
+    <h2 class="text-2xl font-bold text-slate-100 mb-3">What I Do</h2>
+    <p class="text-slate-400 mb-10 max-w-2xl">Available for remote freelance engagements. Project-based or hourly.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map(s => (
+        <div class="flex flex-col rounded-xl overflow-hidden border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="bg-slate-800 border-b border-slate-700 px-4 py-2 flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f57] flex-shrink-0"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#febc2e] flex-shrink-0"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#28c840] flex-shrink-0"></span>
+            <span class="font-mono text-xs text-slate-500 ml-1 truncate">{s.path}</span>
+          </div>
+          <div class="bg-slate-900 p-6 flex flex-col gap-4 flex-1">
+            <h3 class="font-semibold text-slate-100 leading-snug">{s.title}</h3>
+            <p class="text-slate-400 text-sm leading-relaxed flex-1">{s.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {s.tags.map(t => (
+                <span class="px-2 py-0.5 bg-slate-800 border border-slate-700 rounded text-xs text-slate-400">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
 
   <!-- Experience -->
   <section id="experience" class="fade-section max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
@@ -288,29 +366,39 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
     <h2 class="text-2xl font-bold text-slate-100 mb-10">Projects</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {projects.map(p => (
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col gap-4 hover:border-slate-700 transition-colors">
-          <div class="flex items-start justify-between gap-3">
-            <h3 class="font-semibold text-slate-100 leading-snug">{p.title}</h3>
-            <span class={`text-xs px-2 py-0.5 rounded-full flex-shrink-0 border ${
-              p.status === 'Live' ? 'bg-green-950 text-green-400 border-green-900' :
-              p.status === 'Production' ? 'bg-blue-950 text-blue-400 border-blue-900' :
-              'bg-yellow-950 text-yellow-400 border-yellow-900'
-            }`}>
-              {p.status}
-            </span>
+        <div class="flex flex-col rounded-xl overflow-hidden border border-slate-800 hover:border-slate-700 transition-colors">
+          <!-- Terminal chrome header -->
+          <div class="bg-slate-800 border-b border-slate-700 px-4 py-2 flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f57] flex-shrink-0"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#febc2e] flex-shrink-0"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#28c840] flex-shrink-0"></span>
+            <span class="font-mono text-xs text-slate-500 ml-1 truncate">~/projects/{toKebab(p.title)}</span>
           </div>
-          <p class="text-slate-400 text-sm leading-relaxed flex-1">{p.description}</p>
-          <div class="flex flex-wrap gap-2">
-            {p.stack.map(s => (
-              <span class="px-2 py-0.5 bg-slate-800 border border-slate-700 rounded text-xs text-slate-400">{s}</span>
-            ))}
+          <!-- Card body -->
+          <div class="bg-slate-900 p-6 flex flex-col gap-4 flex-1">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-semibold text-slate-100 leading-snug">{p.title}</h3>
+              <span class={`text-xs px-2 py-0.5 rounded-full flex-shrink-0 border ${
+                p.status === 'Live' ? 'bg-green-950 text-green-400 border-green-900' :
+                p.status === 'Production' ? 'bg-blue-950 text-blue-400 border-blue-900' :
+                'bg-yellow-950 text-yellow-400 border-yellow-900'
+              }`}>
+                {p.status}
+              </span>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed flex-1">{p.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {p.stack.map(s => (
+                <span class="px-2 py-0.5 bg-slate-800 border border-slate-700 rounded text-xs text-slate-400">{s}</span>
+              ))}
+            </div>
+            {p.url && (
+              <a href={p.url} target="_blank"
+                 class="text-indigo-400 hover:text-indigo-300 text-sm font-medium transition-colors">
+                View on GitHub →
+              </a>
+            )}
           </div>
-          {p.url && (
-            <a href={p.url} target="_blank"
-               class="text-indigo-400 hover:text-indigo-300 text-sm font-medium transition-colors">
-              View on GitHub →
-            </a>
-          )}
         </div>
       ))}
     </div>
@@ -324,7 +412,7 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
       View all badges on Credly →
     </a>
 
-    <h3 class="text-xs uppercase tracking-widest text-slate-600 mb-4 mt-6">Featured</h3>
+    <h3 class="font-mono text-xs text-slate-600 mb-4 mt-6"># Featured</h3>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
       {certs.filter(c => c.highlight).map(c => (
         <div class="bg-slate-900 border border-indigo-900/40 rounded-xl p-4 hover:border-indigo-700/50 transition-colors">
@@ -335,7 +423,7 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
       ))}
     </div>
 
-    <h3 class="text-xs uppercase tracking-widest text-slate-600 mb-4">Additional</h3>
+    <h3 class="font-mono text-xs text-slate-600 mb-4"># Additional</h3>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
       {certs.filter(c => !c.highlight).map(c => (
         <div class="bg-slate-900/40 border border-slate-800 rounded-lg p-3">
@@ -353,7 +441,7 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {skillGroups.map(g => (
         <div>
-          <p class="text-xs uppercase tracking-widest text-slate-600 mb-3">{g.label}</p>
+          <p class="font-mono text-xs text-slate-600 mb-3"># {g.label}</p>
           <div class="flex flex-wrap gap-2">
             {g.items.map(s => {
               const icon = skillIconMap[s];
@@ -372,15 +460,14 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
 
   <!-- Contact -->
   <section id="contact" class="fade-section max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
-    <h2 class="text-2xl font-bold text-slate-100 mb-4">Get in Touch</h2>
+    <h2 class="text-2xl font-bold text-slate-100 mb-4">Let's Work Together</h2>
     <p class="text-slate-400 mb-8 max-w-xl leading-relaxed">
-      Open to DevOps, Platform Engineering, and AI Engineering opportunities.
-      Currently based in Riyadh — available remotely or on-site.
+      Have a DevOps problem, a deployment that's blocking you, or an LLM workflow you want to ship fast? I'm available for remote freelance engagements — project-based or hourly.
     </p>
     <div class="flex flex-wrap gap-4">
       <a href="mailto:jayveecmacaraeg@gmail.com"
          class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors">
-        Email Me
+        Start a Conversation
       </a>
       <a href="https://linkedin.com/in/jayveecelestial" target="_blank"
          class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
@@ -406,8 +493,24 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
   </footer>
 
   <style>
+    /* Dot-grid background texture */
+    body {
+      background-image: radial-gradient(circle, rgba(99,102,241,0.08) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    /* JetBrains Mono for font-mono */
+    .font-mono, code, pre {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
     /* Light mode overrides */
-    html.light body { background-color: #f8fafc; color: #1e293b; }
+    html.light body {
+      background-color: #f8fafc;
+      color: #1e293b;
+      background-image: radial-gradient(circle, rgba(99,102,241,0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
 
     /* Backgrounds */
     html.light .bg-slate-950 { background-color: #f8fafc !important; }
@@ -416,6 +519,9 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
     html.light .bg-slate-900\/50 { background-color: rgba(226,232,240,0.5) !important; }
     html.light .bg-slate-900\/40 { background-color: rgba(226,232,240,0.4) !important; }
     html.light .bg-slate-800 { background-color: #e2e8f0 !important; }
+
+    /* Terminal window elements in light mode */
+    html.light .bg-slate-900.border.border-slate-700\/50.rounded-t-xl { background-color: #e2e8f0 !important; }
 
     /* Text — all must be dark enough on white */
     html.light .text-slate-100 { color: #0f172a !important; }
@@ -444,6 +550,7 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
     /* Borders */
     html.light .border-slate-800 { border-color: #e2e8f0 !important; }
     html.light .border-slate-700 { border-color: #cbd5e1 !important; }
+    html.light .border-slate-700\/50 { border-color: rgba(203,213,225,0.5) !important; }
     html.light .border-indigo-900\/40 { border-color: rgba(99,102,241,0.2) !important; }
     html.light .hover\:border-indigo-700\/50:hover { border-color: rgba(99,102,241,0.5) !important; }
     html.light .hover\:border-slate-700:hover { border-color: #94a3b8 !important; }
@@ -506,7 +613,7 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
   </button>
 
   <script>
-    const sections = ['experience', 'projects', 'skills', 'certifications', 'contact'];
+    const sections = ['services', 'experience', 'projects', 'skills', 'certifications', 'contact'];
     const navLinks = document.querySelectorAll('.nav-link');
 
     const navObserver = new IntersectionObserver((entries) => {
@@ -561,10 +668,10 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
   <script>
     const phrases = [
       'OpenShift & Kubernetes Specialist',
-      'AI Engineering in Progress',
+      'LLM Workflow Automation',
       'Red Hat Certified Engineer',
-      'LLM Workflow Builder',
-      'Platform Engineer',
+      'Platform Engineering for Startups',
+      'CI/CD & GitOps Expert',
     ];
     const el = document.getElementById('typing-text');
     if (el) {

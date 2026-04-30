@@ -5,55 +5,70 @@ const experience = [
     role: "Senior DevOps Engineer",
     period: "Sep 2025 – Present",
     location: "Riyadh, Saudi Arabia · On-site",
-    skills: ["OpenShift", "DevOps", "Kubernetes"],
     current: true,
+    bullets: [
+      "Leading migration of client applications from legacy Docker Swarm to high-availability Red Hat OpenShift clusters.",
+      "Designing automated workflows using Control-M for enterprise job scheduling and cross-platform dependencies.",
+      "Developed LLM-integrated workflows to assist pavement engineering colleagues in analyzing large-scale datasets.",
+      "Streamlining containerization workflows by troubleshooting developer images for OpenShift deployment.",
+    ],
+    skills: ["OpenShift", "Kubernetes", "Control-M", "LLM Engineering", "Docker"],
   },
   {
-    company: "IBM Philippines",
-    role: "Application Developer: Platform Engineer",
-    period: "Mar 2024 – Sep 2025",
-    location: "Philippines · Hybrid",
-    skills: ["OpenShift", "Jira", "Platform Engineering"],
+    company: "IBM Solutions Delivery, Inc.",
+    role: "Platform Engineer",
+    period: "Mar 2024 – Aug 2025",
+    location: "Quezon City, Philippines · Hybrid",
     current: false,
+    bullets: [
+      "Deployed OpenShift ACM and Advanced Cluster Security for centralized multi-cluster governance.",
+      "Created ACM policies to monitor unusual resource usage and automate cleanup of temporary namespaces.",
+      "Developed Python and Bash scripts to audit microservice versions across PROD and DR environments.",
+    ],
+    skills: ["OpenShift ACM", "Red Hat ACS", "Python", "Bash", "Multi-cluster"],
   },
   {
-    company: "IBM Philippines",
-    role: "Application Developer: DevOps Engineer",
-    period: "Nov 2022 – Mar 2024",
-    location: "Philippines · Remote",
-    skills: ["Python", "JMeter", "Jenkins", "GitLab CI/CD", "Docker", "Kubernetes"],
+    company: "IBM Solutions Delivery, Inc.",
+    role: "DevOps Engineer",
+    period: "Jun 2022 – Mar 2024",
+    location: "Quezon City, Philippines · Remote",
     current: false,
-  },
-  {
-    company: "IBM Philippines",
-    role: "Consulting Associate",
-    period: "Jun 2022 – Oct 2022",
-    location: "Philippines",
-    skills: ["IBM Garage", "Agile", "Design Thinking"],
-    current: false,
+    bullets: [
+      "Managed Helm chart deployments and DevOps solutions for large-scale banking clients and external vendors.",
+      "Built Jenkins pipeline scripts to automate pull request checks and track build-time analytics.",
+      "Provided production support and technical enablement for 300+ project managers, developers, and architects.",
+    ],
+    skills: ["Helm", "Jenkins", "GitLab CI/CD", "Docker", "Kubernetes", "Banking"],
   },
 ];
 
 const projects = [
   {
     title: "Debt Tracker",
-    description: "Personal finance web app for OFW debt repayment planning. Avalanche/snowball payoff planning, SAR→PHP remittance tracking, AI-powered analysis, multi-user support, CI/CD via GitHub Actions.",
+    description: "Personal finance web app for OFW debt repayment planning. Avalanche/snowball payoff planning, SAR→PHP remittance tracking, AI-powered analysis, multi-user support, and full CI/CD via GitHub Actions.",
     stack: ["FastAPI", "SQLAlchemy", "Jinja2", "PostgreSQL", "Docker", "GitHub Actions"],
     url: "https://github.com/jeboygwapo/debt-tracker",
     status: "Live",
   },
   {
+    title: "LLM-Integrated Data Workflows",
+    description: "Custom LLM integrations developed at eMcREY to automate analysis and synthesis of complex pavement engineering datasets — reducing manual processing time for engineering colleagues.",
+    stack: ["Python", "OpenAI API", "LLM Engineering"],
+    url: null,
+    status: "Production",
+  },
+  {
     title: "AI Engineering Projects",
-    description: "LLM Engineering and OpenAI API integrations — ongoing projects as part of AI Engineering transition from DevOps background.",
-    stack: ["Python", "OpenAI API", "FastAPI"],
+    description: "Ongoing LLM Engineering and OpenAI API integrations as part of AI Engineering transition. Includes AI-assisted automation script generation and 100 Days of Code curriculum.",
+    stack: ["Python", "OpenAI API", "Cursor IDE", "Prompt Engineering"],
     url: null,
     status: "In Progress",
   },
 ];
 
 const certs = [
-  { name: "Red Hat Certified Technologist in OpenShift", issuer: "Red Hat", date: "Mar 2026", expires: "Mar 2029", highlight: true },
-  { name: "Red Hat Certified Specialist in OpenShift ACM", issuer: "Red Hat", date: "Dec 2025", expires: "Dec 2028", highlight: true },
+  { name: "Red Hat Certified Technologist in OpenShift (EX180)", issuer: "Red Hat", date: "Mar 2026", expires: "Mar 2029", highlight: true },
+  { name: "Red Hat Certified Specialist in OpenShift ACM (EX432)", issuer: "Red Hat", date: "Dec 2025", expires: "Dec 2028", highlight: true },
   { name: "Red Hat Certified OpenShift Administrator (EX280)", issuer: "Red Hat", date: "Nov 2025", expires: "Nov 2028", highlight: true },
   { name: "Red Hat Certified Specialist in Containers (EX188)", issuer: "Red Hat", date: "Mar 2025", expires: "Mar 2028", highlight: true },
   { name: "AWS Certified Cloud Practitioner", issuer: "AWS", date: "Feb 2026", expires: "Feb 2029", highlight: true },
@@ -62,15 +77,19 @@ const certs = [
   { name: "Red Hat Partner Program: Premier", issuer: "Red Hat", date: "Apr 2026", expires: "Dec 2026", highlight: false },
   { name: "Mission Critical Automation: Technical Seller", issuer: "Red Hat", date: "Mar 2026", expires: "Mar 2028", highlight: false },
   { name: "Application Platform: Technical Seller", issuer: "Red Hat", date: "Mar 2026", expires: "Mar 2028", highlight: false },
+  { name: "Container Management: Technical Seller", issuer: "Red Hat", date: "Mar 2026", expires: "Mar 2028", highlight: false },
   { name: "DevSecOps Essentials", issuer: "IBM", date: "Aug 2022", expires: null, highlight: false },
   { name: "IT Specialist - Python", issuer: "Certiport", date: "Nov 2021", expires: null, highlight: false },
   { name: "IT Specialist - Java", issuer: "Certiport", date: "Dec 2021", expires: null, highlight: false },
 ];
 
-const skills = [
-  "OpenShift", "Kubernetes", "ArgoCD", "Helm", "Ansible", "Terraform",
-  "Docker", "Podman", "GitHub Actions", "GitLab CI/CD", "Jenkins",
-  "Python", "Bash", "Red Hat ACM", "Red Hat ACS", "AWS", "Azure",
+const skillGroups = [
+  { label: "Container Platforms", items: ["Red Hat OpenShift", "Kubernetes", "Docker", "Podman"] },
+  { label: "Automation & Orchestration", items: ["Control-M", "Ansible", "Terraform", "Helm", "ArgoCD"] },
+  { label: "CI/CD & GitOps", items: ["GitHub Actions", "GitLab CI/CD", "Jenkins"] },
+  { label: "AI / ML", items: ["LLM Engineering", "OpenAI API", "Prompt Engineering", "Cursor IDE"] },
+  { label: "Languages", items: ["Python", "Bash", "Java"] },
+  { label: "Cloud", items: ["AWS", "Microsoft Azure", "IBM Cloud"] },
 ];
 ---
 
@@ -92,6 +111,7 @@ const skills = [
       <div class="flex gap-6 text-sm text-slate-400">
         <a href="#experience" class="hover:text-slate-100 transition-colors">Experience</a>
         <a href="#projects" class="hover:text-slate-100 transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-slate-100 transition-colors">Skills</a>
         <a href="#certifications" class="hover:text-slate-100 transition-colors">Certs</a>
         <a href="#contact" class="hover:text-slate-100 transition-colors">Contact</a>
       </div>
@@ -100,17 +120,16 @@ const skills = [
 
   <!-- Hero -->
   <section class="max-w-5xl mx-auto px-6 pt-36 pb-24">
-    <p class="text-indigo-400 text-sm font-medium mb-3 tracking-widest uppercase">Senior DevOps Engineer</p>
-    <h1 class="text-5xl font-bold text-slate-100 mb-4 leading-tight">
-      Jayvee Celestial
-    </h1>
+    <p class="text-indigo-400 text-sm font-medium mb-3 tracking-widest uppercase">Senior DevOps Engineer · Riyadh, KSA</p>
+    <h1 class="text-5xl font-bold text-slate-100 mb-4 leading-tight">Jayvee Celestial</h1>
     <h2 class="text-xl text-slate-400 mb-6">
-      OpenShift & Kubernetes Specialist · <span class="text-slate-300">AI Engineering in Progress</span>
+      OpenShift & Kubernetes Specialist ·
+      <span class="text-slate-300">AI Engineering in Progress</span>
     </h2>
     <p class="text-slate-400 max-w-2xl text-base leading-relaxed mb-8">
-      4+ years building cloud-native platforms at IBM and eMcREY Limited in Riyadh.
-      Red Hat certified across OpenShift administration, ACM, and containers.
-      Applying DevOps foundations to LLM infrastructure and AI Engineering.
+      4+ years building cloud-native platforms at IBM and eMcREY. Red Hat certified across OpenShift
+      administration, ACM, and containers. Currently integrating LLM workflows into DevOps automation
+      and expanding into full-stack AI Engineering.
     </p>
     <div class="flex flex-wrap gap-3">
       <a href="https://linkedin.com/in/jayveecelestial" target="_blank"
@@ -121,30 +140,29 @@ const skills = [
          class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
         GitHub
       </a>
+      <a href="https://www.credly.com/users/jayvee-celestial/badges" target="_blank"
+         class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
+        Credly Badges
+      </a>
       <a href="#contact"
          class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
         Contact
       </a>
-    </div>
-    <div class="flex flex-wrap gap-2 mt-10">
-      {skills.map(s => (
-        <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs text-slate-400">{s}</span>
-      ))}
     </div>
   </section>
 
   <!-- Experience -->
   <section id="experience" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
     <h2 class="text-2xl font-bold text-slate-100 mb-10">Experience</h2>
-    <div class="space-y-0">
+    <div>
       {experience.map((e, i) => (
         <div class="flex gap-6">
           <div class="flex flex-col items-center">
             <div class={`w-3 h-3 rounded-full mt-1.5 flex-shrink-0 ${e.current ? 'bg-indigo-500' : 'bg-slate-700'}`}></div>
             {i < experience.length - 1 && <div class="w-px flex-1 bg-slate-800 mt-1 min-h-[3rem]"></div>}
           </div>
-          <div class="pb-10 flex-1">
-            <div class="flex items-start justify-between gap-4 flex-wrap">
+          <div class="pb-12 flex-1">
+            <div class="flex items-start justify-between gap-4 flex-wrap mb-3">
               <div>
                 <h3 class="font-semibold text-slate-100">{e.role}</h3>
                 <p class="text-indigo-400 text-sm mt-0.5">{e.company}</p>
@@ -154,7 +172,15 @@ const skills = [
                 <p class="text-slate-600 text-xs mt-0.5">{e.location}</p>
               </div>
             </div>
-            <div class="flex flex-wrap gap-2 mt-3">
+            <ul class="space-y-1.5 mb-4">
+              {e.bullets.map(b => (
+                <li class="text-slate-400 text-sm leading-relaxed flex gap-2">
+                  <span class="text-slate-600 mt-1 flex-shrink-0">›</span>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="flex flex-wrap gap-2">
               {e.skills.map(s => (
                 <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded text-xs text-slate-500">{s}</span>
               ))}
@@ -168,17 +194,21 @@ const skills = [
   <!-- Projects -->
   <section id="projects" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
     <h2 class="text-2xl font-bold text-slate-100 mb-10">Projects</h2>
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {projects.map(p => (
         <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col gap-4 hover:border-slate-700 transition-colors">
           <div class="flex items-start justify-between gap-3">
-            <h3 class="font-semibold text-slate-100">{p.title}</h3>
-            <span class={`text-xs px-2 py-0.5 rounded-full flex-shrink-0 border ${p.status === 'Live' ? 'bg-green-950 text-green-400 border-green-900' : 'bg-yellow-950 text-yellow-400 border-yellow-900'}`}>
+            <h3 class="font-semibold text-slate-100 leading-snug">{p.title}</h3>
+            <span class={`text-xs px-2 py-0.5 rounded-full flex-shrink-0 border ${
+              p.status === 'Live' ? 'bg-green-950 text-green-400 border-green-900' :
+              p.status === 'Production' ? 'bg-blue-950 text-blue-400 border-blue-900' :
+              'bg-yellow-950 text-yellow-400 border-yellow-900'
+            }`}>
               {p.status}
             </span>
           </div>
-          <p class="text-slate-400 text-sm leading-relaxed">{p.description}</p>
-          <div class="flex flex-wrap gap-2 mt-auto">
+          <p class="text-slate-400 text-sm leading-relaxed flex-1">{p.description}</p>
+          <div class="flex flex-wrap gap-2">
             {p.stack.map(s => (
               <span class="px-2 py-0.5 bg-slate-800 border border-slate-700 rounded text-xs text-slate-400">{s}</span>
             ))}
@@ -194,10 +224,32 @@ const skills = [
     </div>
   </section>
 
+  <!-- Skills -->
+  <section id="skills" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
+    <h2 class="text-2xl font-bold text-slate-100 mb-10">Technical Skills</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {skillGroups.map(g => (
+        <div>
+          <p class="text-xs uppercase tracking-widest text-slate-600 mb-3">{g.label}</p>
+          <div class="flex flex-wrap gap-2">
+            {g.items.map(s => (
+              <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs text-slate-400">{s}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <!-- Certifications -->
   <section id="certifications" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
-    <h2 class="text-2xl font-bold text-slate-100 mb-10">Certifications</h2>
-    <h3 class="text-xs uppercase tracking-widest text-slate-600 mb-4">Featured</h3>
+    <h2 class="text-2xl font-bold text-slate-100 mb-2">Certifications</h2>
+    <a href="https://www.credly.com/users/jayvee-celestial/badges" target="_blank"
+       class="text-indigo-400 hover:text-indigo-300 text-sm transition-colors mb-10 inline-block">
+      View all badges on Credly →
+    </a>
+
+    <h3 class="text-xs uppercase tracking-widest text-slate-600 mb-4 mt-6">Featured</h3>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
       {certs.filter(c => c.highlight).map(c => (
         <div class="bg-slate-900 border border-indigo-900/40 rounded-xl p-4 hover:border-indigo-700/50 transition-colors">
@@ -207,6 +259,7 @@ const skills = [
         </div>
       ))}
     </div>
+
     <h3 class="text-xs uppercase tracking-widest text-slate-600 mb-4">Additional</h3>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
       {certs.filter(c => !c.highlight).map(c => (
@@ -216,6 +269,27 @@ const skills = [
           <p class="text-slate-700 text-xs mt-1">{c.date}</p>
         </div>
       ))}
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
+    <h2 class="text-2xl font-bold text-slate-100 mb-8">Education</h2>
+    <div class="space-y-4">
+      <div class="flex items-start justify-between gap-4 flex-wrap">
+        <div>
+          <h3 class="font-semibold text-slate-100">Bachelor of Science in Information Technology</h3>
+          <p class="text-indigo-400 text-sm mt-0.5">University of the East, Manila</p>
+        </div>
+        <p class="text-slate-500 text-sm flex-shrink-0">2022</p>
+      </div>
+      <div class="flex items-start justify-between gap-4 flex-wrap">
+        <div>
+          <h3 class="font-semibold text-slate-100">STEM — Science Technology Engineering Mathematics</h3>
+          <p class="text-indigo-400 text-sm mt-0.5">Technological Institute of the Philippines</p>
+        </div>
+        <p class="text-slate-500 text-sm flex-shrink-0">2018</p>
+      </div>
     </div>
   </section>
 
@@ -234,6 +308,10 @@ const skills = [
       <a href="https://github.com/jeboygwapo" target="_blank"
          class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
         GitHub
+      </a>
+      <a href="https://www.credly.com/users/jayvee-celestial/badges" target="_blank"
+         class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
+        Credly
       </a>
     </div>
   </section>

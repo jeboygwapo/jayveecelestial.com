@@ -103,14 +103,14 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
   "GitHub Actions":    { slug: "githubactions",    color: "2088FF" },
   "GitLab CI/CD":      { slug: "gitlab",           color: "FC6D26" },
   "Jenkins":           { slug: "jenkins",          color: "D24939" },
-  "OpenAI API":        { slug: "openai",           color: "ffffff" },
-  "Cursor IDE":        { slug: "cursor",           color: "ffffff" },
-  "Python":            { slug: "python",           color: "3776AB" },
-  "Bash":              { slug: "gnubash",          color: "4EAA25" },
-  "Java":              { slug: "openjdk",          color: "ED8B00" },
-  "AWS":               { slug: "amazonaws",        color: "FF9900" },
-  "Microsoft Azure":   { slug: "microsoftazure",   color: "0078D4" },
-  "IBM Cloud":         { slug: "ibmcloud",         color: "1261FE" },
+  "OpenAI API":        { slug: "openai",              color: "412991" },
+  "Cursor IDE":        { slug: "cursor",              color: "000000" },
+  "Python":            { slug: "python",              color: "3776AB" },
+  "Bash":              { slug: "gnubash",             color: "4EAA25" },
+  "Java":              { slug: "openjdk",             color: "ED8B00" },
+  "AWS":               { slug: "amazonwebservices",   color: "FF9900" },
+  "Microsoft Azure":   { slug: "microsoftazure",      color: "0078D4" },
+  "IBM Cloud":         { slug: "ibm",                 color: "052FAD" },
 };
 ---
 
@@ -439,6 +439,8 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
     html.light .hover\:bg-slate-700:hover { background-color: #cbd5e1 !important; }
     html.light #theme-toggle { color: #475569 !important; }
     html.light #theme-toggle:hover { background-color: #e2e8f0 !important; color: #0f172a !important; }
+    html.light .nav-link.active { color: #0f172a !important; }
+    html.light .nav-link.active::after { background: #6366f1; }
 
     .typing-cursor {
       display: inline-block;

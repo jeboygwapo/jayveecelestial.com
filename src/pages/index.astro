@@ -44,9 +44,10 @@ const experience = [
 const projects = [
   {
     title: "Debt Tracker",
-    description: "Built a full-stack personal finance web app for OFW debt repayment planning — demonstrating end-to-end delivery: FastAPI backend, PostgreSQL, Docker, and automated CI/CD via GitHub Actions. Avalanche/snowball payoff strategies, SAR→PHP remittance tracking, and AI-powered analysis.",
+    description: "Built a full-stack personal finance web app for OFW debt repayment planning — demonstrating end-to-end delivery: FastAPI backend, PostgreSQL, Docker, and automated CI/CD via GitHub Actions. Avalanche/snowball payoff strategies, multi-currency remittance tracking, and AI-powered debt analysis.",
     stack: ["FastAPI", "SQLAlchemy", "Jinja2", "PostgreSQL", "Docker", "GitHub Actions"],
     url: "https://personal-debt-tracker.fly.dev",
+    github: "https://github.com/jeboygwapo/debt-tracker",
     status: "Live",
   },
   {
@@ -54,6 +55,7 @@ const projects = [
     description: "Actively building AI Engineering capabilities: LLM-integrated Python workflows using OpenAI and Anthropic APIs, prompt engineering for DevOps automation, Claude Code MCP configuration, and agent orchestration. Applying directly to client work.",
     stack: ["Python", "OpenAI API", "Anthropic Claude", "Prompt Engineering", "MCP Configuration"],
     url: null,
+    github: null,
     status: "In Progress",
   },
 ];
@@ -391,12 +393,20 @@ function toKebab(title: string): string {
                 <span class="px-2 py-0.5 bg-slate-800 border border-slate-700 rounded text-xs text-slate-400">{s}</span>
               ))}
             </div>
-            {p.url && (
-              <a href={p.url} target="_blank"
-                 class="text-indigo-400 hover:text-indigo-300 text-sm font-medium transition-colors">
-                View on GitHub →
-              </a>
-            )}
+            <div class="flex gap-4 flex-wrap">
+              {p.url && (
+                <a href={p.url} target="_blank"
+                   class="text-green-400 hover:text-green-300 text-sm font-medium transition-colors">
+                  View Live →
+                </a>
+              )}
+              {p.github && (
+                <a href={p.github} target="_blank"
+                   class="text-indigo-400 hover:text-indigo-300 text-sm font-medium transition-colors">
+                  View on GitHub →
+                </a>
+              )}
+            </div>
           </div>
         </div>
       ))}

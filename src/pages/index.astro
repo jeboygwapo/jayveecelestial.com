@@ -51,9 +51,9 @@ const projects = [
     status: "Live",
   },
   {
-    title: "AI Engineering — In Progress",
-    description: "Actively building AI Engineering capabilities: LLM-integrated Python workflows using OpenAI and Anthropic APIs, prompt engineering for DevOps automation, Claude Code MCP configuration, and agent orchestration. Applying directly to client work.",
-    stack: ["Python", "OpenAI API", "Anthropic Claude", "Prompt Engineering", "MCP Configuration"],
+    title: "K8s Log Analyzer — RAG",
+    description: "RAG-powered Kubernetes incident intelligence system. Queries Loki for pod logs, chunks via sliding window, embeds with OpenAI, retrieves similar past incidents from ChromaDB, and generates structured root cause reports with fix recommendations. FastAPI dashboard, Alertmanager webhook integration, namespace-isolated vector store, and security guardrail layer. Refactoring core pipeline to LangChain for provider-portable LLM orchestration.",
+    stack: ["Python", "FastAPI", "OpenAI API", "LangChain", "ChromaDB", "Loki", "Kubernetes", "Docker", "GitHub Actions"],
     url: null,
     github: null,
     status: "In Progress",
@@ -102,7 +102,7 @@ const skillGroups = [
   { label: "Container Platforms", items: ["Red Hat OpenShift", "Kubernetes", "Docker", "Podman"] },
   { label: "Automation & Orchestration", items: ["Control-M", "Ansible", "Terraform", "Helm", "ArgoCD"] },
   { label: "CI/CD & GitOps", items: ["GitHub Actions", "GitLab CI/CD", "Jenkins"] },
-  { label: "AI / ML", items: ["LLM Engineering", "OpenAI API", "Prompt Engineering", "Cursor IDE"] },
+  { label: "AI / ML", items: ["LLM Engineering", "OpenAI API", "LangChain", "Prompt Engineering", "Cursor IDE"] },
   { label: "Languages", items: ["Python", "Bash", "Java"] },
   { label: "Cloud", items: ["AWS", "Microsoft Azure", "IBM Cloud"] },
 ];
@@ -120,6 +120,7 @@ const skillIconMap: Record<string, { slug: string; color: string }> = {
   "GitLab CI/CD":      { slug: "gitlab",           color: "FC6D26" },
   "Jenkins":           { slug: "jenkins",          color: "D24939" },
   "OpenAI API":        { slug: "openai",           color: "74aa9c" },
+  "LangChain":         { slug: "langchain",        color: "1C3C3C" },
   "Python":            { slug: "python",           color: "3776AB" },
   "Bash":              { slug: "gnubash",          color: "4EAA25" },
   "Java":              { slug: "openjdk",          color: "ED8B00" },
@@ -163,7 +164,7 @@ function toKebab(title: string): string {
     "name": "Jayvee Celestial",
     "jobTitle": "Freelance DevOps & AI Engineering Consultant",
     "url": "https://jayveecelestial.com",
-    "email": "jayveecmacaraeg@gmail.com",
+    "email": "jayveecmacaraeg [at] gmail [dot] com",
     "sameAs": [
       "https://www.linkedin.com/in/jayveecelestial/",
       "https://github.com/jeboygwapo",
@@ -474,10 +475,18 @@ function toKebab(title: string): string {
       Have a DevOps problem, a deployment that's blocking you, or an LLM workflow you want to ship fast? I'm available for remote freelance engagements — project-based or hourly.
     </p>
     <div class="flex flex-wrap gap-4">
-      <a href="mailto:jayveecmacaraeg@gmail.com"
+      <a href="#contact" id="contact-btn"
          class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors">
         Start a Conversation
       </a>
+      <script>
+        document.getElementById('contact-btn').addEventListener('click', function(e) {
+          e.preventDefault();
+          const u = 'jayveecmacaraeg';
+          const d = 'gmail.com';
+          window.location.href = 'mailto:' + u + '@' + d;
+        });
+      </script>
       <a href="https://linkedin.com/in/jayveecelestial" target="_blank"
          class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors border border-slate-700">
         LinkedIn

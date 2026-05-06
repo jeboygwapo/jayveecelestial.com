@@ -633,6 +633,7 @@ function toKebab(title: string): string {
   <script>
     const sections = ['services', 'experience', 'projects', 'skills', 'certifications', 'contact'];
     const navLinks = document.querySelectorAll('.nav-link');
+    let clickLock = false;
 
     function setActiveNav(id) {
       navLinks.forEach(l => l.classList.remove('active'));
@@ -640,17 +641,26 @@ function toKebab(title: string): string {
     }
 
     function updateNav() {
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
-        setActiveNav('contact');
-        return;
-      }
+      if (clickLock) return;
       let current = '';
       for (const id of sections) {
         const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= 100) current = id;
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 100) current = id;
+        // last section: activate when any part visible in bottom half
+        else if (id === sections[sections.length - 1] && rect.top < window.innerHeight) current = id;
       }
       if (current) setActiveNav(current);
     }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        setActiveNav(link.dataset.nav);
+        clickLock = true;
+        setTimeout(() => { clickLock = false; updateNav(); }, 900);
+      });
+    });
 
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
